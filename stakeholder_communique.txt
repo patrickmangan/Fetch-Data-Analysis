@@ -1,0 +1,9 @@
+Stakeholder Communique
+
+Generally speaking, the data provided is a good scale to provide some insights.  In order to provide a more complete picture of our users, there are a few requests I'd like to make.
+
+Is there any way to expand our brand footprint?  There appear to be a number of brands that aren't represented by barcode in our transactions from receipts.  If we are not able to match those transaction back to brands, we may be leaving some further data insights on the table.
+
+Is there a way we could get store name along with the transactions?  We could gain major insights by assigning the transactions to specific brick and mortar retailers.  If not, what about acquiring geolocation data?  We could use that to attribute transactions to retailers as well.
+
+The only performance and scaling concerns I have are around the data structure consistency.  I would add validation steps during the ingest process to ensure that there isn't any corrupted or misaligned data.
