@@ -1,0 +1,15 @@
+Data Quality Issues
+
+I am going to reference lines from my table_builder_final.py script where I ran into data quality issues.
+
+First off, the functions I created in lines 28-44 are there because there is some funky data structure stuff going on in the 'rewardsReceiptItemList' list.  Missing fields, something along those lines.  I wrapped the list extractor in try/except methods and also in an if/else in order to read the json without error.  Some data was possibly excluded by doing this.
+
+In line 73 I decided to only use the 'description' from 'rewardsReceiptItemList' for the item names instead of joining to the brands.json data.  I did this because not enough data matched when I joined receipts.json and brands.json on barcode.  Very few barcodes in brands.json are represented in receipts, and I wanted to make sure I was accounting for the most transactions.  With more time I would try to do some sort of text match with the 'description' column from receipts.json and the 'brand' column in brands.json
+
+In line 77 I encountered a lot of records with 'ITEM NOT FOUND' as the 'description'.  I would try to get to the bottom of these records.
+
+In line 117 I didn't see 'Accepted' in the 'rewardsReceiptStatus' column.  I assumed 'FINSHED' meant 'accepted' but I would try to confirm that.
+
+In line 231 I did groupby 'name' from brands.json and got a weirdly low count.  This relates to why I didn't use that field before.  I repeated the groupby with the 'description' column and got better results.
+
+
